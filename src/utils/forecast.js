@@ -10,8 +10,8 @@ const forecast = (lat, long, callback) => {
         } else if(wxError) {
             callback(response.body.error.info, undefined);
         } else {
-            const {weather_descriptions:descriptions, temperature, feelslike} = response.body.current;
-            callback(undefined, descriptions[0] + ". It is currently " + temperature + " degrees out. It feels like " + feelslike + " degrees.");
+            const {weather_descriptions:descriptions, temperature, feelslike, wind_speed, wind_dir} = response.body.current;
+            callback(undefined, descriptions[0] + ". It is currently " + temperature + " degrees out. It feels like " + feelslike + " degrees.  The wind is blowing out of the " + wind_dir + " at " + wind_speed + " mph.");
         }
     });
 };
